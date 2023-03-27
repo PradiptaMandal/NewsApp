@@ -18,7 +18,7 @@ export class News extends Component {
       let data = await fetch(url);
       let parsedData = await data.json()
       console.log(parsedData)
-      thid.setState({articles: parsedData.articles})
+      this.setState({articles: parsedData.articles})
     }
   render() {
     return (
@@ -28,7 +28,7 @@ export class News extends Component {
         <div className="row">
         {this.state.articles.map((element)=>{
             return <div className="col-md-4" key={element.url}>
-            <NewsItem  title={element.title} description={element?element.description.slice(0, 60):""} imageUrl={element.urlToImage} newsUrl={element.url} />
+            <NewsItem  title={element.title} description={element.description?element.description:" "} imageUrl={element.urlToImage} newsUrl={element.url} />
           </div>
 
         })}
