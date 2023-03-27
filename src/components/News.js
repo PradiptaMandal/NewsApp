@@ -47,7 +47,7 @@ export class News extends Component {
         <div className="row">
         {this.state.articles.map((element)=>{
             return <div className="col-md-4" key={element.url}>
-            <NewsItem  title={element.title} description={element.description?element.description:" "} imageUrl={element.urlToImage} newsUrl={element.url} />
+            <NewsItem  title={element.title} description={element.description?element.description:" "} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
           </div>
 
         })}
@@ -55,8 +55,8 @@ export class News extends Component {
           
         </div>
         <div className="container d-flex justify-content-between">
-        <button disabled={this.state.page<=1} type="button" class="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
-        <button type="button" class="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
+        <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
+        <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
         </div>
       </div>
     );
